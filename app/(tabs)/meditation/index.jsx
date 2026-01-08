@@ -14,7 +14,7 @@ export default function MeditationQuotidienne() {
     reference: "Philippiens 4:13",
     theme: "Force et Persévérance"
   });
-  
+
   const [reflections] = useState([
     "Quels défis actuels nécessitent la force de Christ ?",
     "Comment puis-je m'appuyer davantage sur Dieu ?",
