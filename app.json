@@ -21,7 +21,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.programmeremmanuel.Koinonia"
+      "package": "com.programmeremmanuel.Koinonia",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",

@@ -1,4 +1,4 @@
-import { Tabs, useRouter } from 'expo-router';
+import { Tabs } from 'expo-router';
 import Feather from '@expo/vector-icons/Feather';
 import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -9,18 +9,15 @@ import { MenuDrawer } from '../../components/Menu/MenuDrawer';
 
 export default function TabLayout() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const router = useRouter();
 
-  const renderDrawerContent = () => {
-    return (
-      <MenuDrawer setDrawerOpen={setDrawerOpen} />
-    );
-  };
-
+  const renderDrawerContent = () => (
+    <MenuDrawer setDrawerOpen={setDrawerOpen} />
+  );
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" className="bg-gray-50" />
+      <StatusBar barStyle="dark-content" backgroundColor="#F9FAFB" />
+
       <Drawer
         open={drawerOpen}
         onOpen={() => setDrawerOpen(true)}
@@ -28,56 +25,90 @@ export default function TabLayout() {
         drawerPosition="right"
         renderDrawerContent={renderDrawerContent}
       >
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#ffff" }}>
-          <Tabs 
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+          <Tabs
             screenOptions={{
-              tabBarActiveTintColor: '#007BFF',
               headerShown: false,
+              tabBarShowLabel: true,
+
+              tabBarActiveTintColor: '#007BFF',
+              tabBarInactiveTintColor: '#9CA3AF',
+
               tabBarStyle: {
-                height: 60,
+                height: 72,
+                paddingBottom: 8,
+                paddingTop: 6,
+                backgroundColor: '#FFFFFF',
+                borderTopWidth: 0.5,
+                borderTopColor: '#E5E7EB',
               },
+
+              tabBarLabelStyle: {
+                fontSize: 11,
+                fontWeight: '600',
+                marginTop: 2,
+              },
+
+              tabBarIconStyle: {
+                marginTop: 4,
+              },
+
               tabBarItemStyle: {
-                backgroundColor: ""
-              }
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
             }}
           >
             <Tabs.Screen
               name="home"
               options={{
                 tabBarLabel: 'Bible',
-                tabBarIcon: ({ color }) => <Feather name="book-open" size={24} color={color} />,
+                tabBarIcon: ({ color }) => (
+                  <Feather name="book-open" size={22} color={color} />
+                ),
               }}
             />
+
             <Tabs.Screen
               name="dictionnaire"
               options={{
                 tabBarLabel: 'Dictionnaire',
-                tabBarIcon: ({ color }) => <Feather name="book" size={24} color={color} />,
+                tabBarIcon: ({ color }) => (
+                  <Feather name="book" size={22} color={color} />
+                ),
               }}
             />
+
             <Tabs.Screen
               name="meditation"
               options={{
-                tabBarLabel: 'Meditation',
-                tabBarIcon: ({ color }) => <Feather name="heart" size={24} color={color} />,
+                tabBarLabel: 'Méditation',
+                tabBarIcon: ({ color }) => (
+                  <Feather name="heart" size={22} color={color} />
+                ),
               }}
             />
+
             <Tabs.Screen
               name="forum"
               options={{
                 tabBarLabel: 'Forum',
-                tabBarIcon: ({ color }) => <Feather name="message-circle" size={24} color={color} />,
+                tabBarIcon: ({ color }) => (
+                  <Feather name="message-circle" size={22} color={color} />
+                ),
               }}
             />
+
             <Tabs.Screen
               name="menu"
               options={{
                 tabBarLabel: 'Menu',
-                tabBarIcon: ({ color }) => <Feather name="menu" size={24} color={color} />,
+                tabBarIcon: ({ color }) => (
+                  <Feather name="menu" size={22} color={color} />
+                ),
               }}
               listeners={{
                 tabPress: (e) => {
-                  // Empêcher la navigation normale et ouvrir le drawer à la place
                   e.preventDefault();
                   setDrawerOpen(true);
                 },
