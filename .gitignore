@@ -37,3 +37,4 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+koinonia-50b4b-firebase-adminsdk-fbsvc-270ccdbabc.json
